@@ -10,4 +10,13 @@ const Footer = styled.footer`
   text-align: center;
 `;
 
-export default () => <Footer>EngineerLiveTokyo &copy; 2018</Footer>;
+export default () => (
+  <Footer>
+    <div>EngineerLiveTokyo &copy; 2018 </div>
+    <div>
+      <a href="https://github.com/5t111111/engineer-live-tokyo" target="_blank">
+        GitHub
+      </a>
+    </div>
+  </Footer>
+);
