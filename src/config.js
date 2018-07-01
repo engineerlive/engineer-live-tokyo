@@ -17,3 +17,7 @@ export const repositorySettings = {
   owner: "5t111111",
   name: "engineer-live-tokyo"
 };
+
+export const siteSettings = {
+  url: "https://engineer-live-tokyo.netlify.com"
+};

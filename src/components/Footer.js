@@ -14,7 +14,11 @@ export default () => (
   <Footer>
     <div>EngineerLiveTokyo &copy; 2018 </div>
     <div>
-      <a href="https://github.com/5t111111/engineer-live-tokyo" target="_blank">
+      <a
+        href="https://github.com/5t111111/engineer-live-tokyo"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         GitHub
       </a>
     </div>
