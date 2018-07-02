@@ -7,6 +7,7 @@ import nabvarLogo from "./navbar-logo.png";
 
 const HeaderWrapper = styled.div`
   height: 3rem;
+  padding: 0 0.5rem;
 `;
 
 const Navbar = styled.nav`
@@ -90,7 +91,7 @@ class Header extends Component {
                     <NavbarItem>
                       <Link to="/posts">お知らせ</Link>
                     </NavbarItem>
-                    <NavbarItem>hoge</NavbarItem>
+                    {/* <NavbarItem>hoge</NavbarItem> */}
                   </Fragment>
                 )
               }
@@ -108,9 +109,9 @@ class Header extends Component {
                         お知らせ
                       </Link>
                     </BurgerMenuLinkWrapper>
-                    <BurgerMenuLinkWrapper>
+                    {/* <BurgerMenuLinkWrapper>
                       <Link to="#">hoge</Link>
-                    </BurgerMenuLinkWrapper>
+                    </BurgerMenuLinkWrapper> */}
                   </BurgerMenu>
                 ) : null}
               </Fragment>
