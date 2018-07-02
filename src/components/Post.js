@@ -15,6 +15,7 @@ const SINGLE_POST_QUERY = gql`
   ) {
     repository(owner: $repositoryOwner, name: $repositoryName) {
       issue(number: $issueNumber) {
+        number
         title
         bodyHTML
         bodyText
