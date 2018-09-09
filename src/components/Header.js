@@ -91,7 +91,9 @@ class Header extends Component {
                     <NavbarItem>
                       <Link to="/posts">お知らせ</Link>
                     </NavbarItem>
-                    {/* <NavbarItem>hoge</NavbarItem> */}
+                    <NavbarItem>
+                      <Link to="/lineup">LINEUP</Link>
+                    </NavbarItem>
                   </Fragment>
                 )
               }

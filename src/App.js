@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import PostList from "./components/PostList";
 import Post from "./components/Post";
+import LineupList from "./components/LineupList";
 import NotFound from "./components/NotFound";
 
 const Main = styled.main`
@@ -33,6 +34,7 @@ class App extends Component {
           <Switch>
             <Route exact={true} path="/" component={Home} />
             <Route exact={true} path="/posts" component={PostList} />
+            <Route exact={true} path="/lineup" component={LineupList} />
             <Route path="/posts/:number" component={Post} />
             <Route component={NotFound} />
           </Switch>
