@@ -70,6 +70,7 @@ export default () => {
               return (
                 <LineupItem
                   key={node.id}
+                  issueNumber={node.number}
                   title={node.title}
                   bodyHTML={node.bodyHTML}
                 />
