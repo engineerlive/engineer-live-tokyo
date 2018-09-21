@@ -111,9 +111,11 @@ class Header extends Component {
                         お知らせ
                       </Link>
                     </BurgerMenuLinkWrapper>
-                    {/* <BurgerMenuLinkWrapper>
-                      <Link to="#">hoge</Link>
-                    </BurgerMenuLinkWrapper> */}
+                    <BurgerMenuLinkWrapper>
+                      <Link to="/lineup" onClick={this.closeBurgerMenu}>
+                        LINEUP
+                      </Link>
+                    </BurgerMenuLinkWrapper>
                   </BurgerMenu>
                 ) : null}
               </Fragment>
