@@ -15,7 +15,7 @@ export default () => (
     <div>EngineerLiveTokyo &copy; 2018 </div>
     <div>
       <a
-        href="https://github.com/5t111111/engineer-live-tokyo"
+        href="https://github.com/engineerlive/engineer-live-tokyo"
         target="_blank"
         rel="noopener noreferrer"
       >

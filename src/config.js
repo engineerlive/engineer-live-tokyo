@@ -14,7 +14,7 @@ export const client = new ApolloClient({
 });
 
 export const repositorySettings = {
-  owner: "5t111111",
+  owner: "engineerlive",
   name: "engineer-live-tokyo"
 };
 
