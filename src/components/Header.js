@@ -91,9 +91,6 @@ class Header extends Component {
                     <NavbarItem>
                       <Link to="/posts">お知らせ</Link>
                     </NavbarItem>
-                    <NavbarItem>
-                      <Link to="/lineup">LINEUP</Link>
-                    </NavbarItem>
                   </Fragment>
                 )
               }
@@ -109,11 +106,6 @@ class Header extends Component {
                     <BurgerMenuLinkWrapper>
                       <Link to="/posts" onClick={this.closeBurgerMenu}>
                         お知らせ
-                      </Link>
-                    </BurgerMenuLinkWrapper>
-                    <BurgerMenuLinkWrapper>
-                      <Link to="/lineup" onClick={this.closeBurgerMenu}>
-                        LINEUP
                       </Link>
                     </BurgerMenuLinkWrapper>
                   </BurgerMenu>
