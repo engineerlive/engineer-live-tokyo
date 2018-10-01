@@ -6,6 +6,7 @@ import { repositorySettings, siteSettings } from "../config";
 import PostHeader from "./PostHeader";
 import Spinner from "./Spinner";
 import Metas from "./Metas";
+import youtubify from "../utils/youtubify";
 
 const SINGLE_POST_QUERY = gql`
   query singlePostQuery(
@@ -47,6 +48,7 @@ export default props => {
         if (error) return `Error! ${error.message}`;
 
         const issue = data.repository.issue;
+        const bodyHTML = youtubify(issue.bodyHTML);
 
         // Prerendering support
         window.prerenderReady = true;
@@ -65,7 +67,7 @@ export default props => {
               date={issue.createdAt}
               authorName={issue.author.login}
             />
-            <div dangerouslySetInnerHTML={{ __html: issue.bodyHTML }} />
+            <div dangerouslySetInnerHTML={{ __html: bodyHTML }} />
           </div>
         );
       }}

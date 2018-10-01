@@ -7,6 +7,7 @@ import { repositorySettings, siteSettings } from "../config";
 import LineupItem from "./LineupItem";
 import Spinner from "./Spinner";
 import Metas from "./Metas";
+import youtubify from "../utils/youtubify";
 
 const SINGLE_LINEUP_QUERY = gql`
   query singleLineupQuery(
@@ -49,6 +50,7 @@ export default props => {
 
         const imgTagPattern = /<img.*?src="(.*?)"/;
         const imgSrc = imgTagPattern.exec(issue.bodyHTML)[1];
+        const bodyHTML = youtubify(issue.bodyHTML);
 
         return (
           <div>
@@ -61,7 +63,7 @@ export default props => {
             <LineupItem
               key={issue.id}
               title={issue.title}
-              bodyHTML={issue.bodyHTML}
+              bodyHTML={bodyHTML}
             />
             <div style={{ textAlign: "center" }}>
               <Link to="/lineup">&lt; LINEUP ページに戻る</Link>
