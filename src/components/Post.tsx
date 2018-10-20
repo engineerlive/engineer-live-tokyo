@@ -34,7 +34,7 @@ const SINGLE_POST_QUERY = gql`
   }
 `
 
-const Post = () => {
+const Post: React.SFC = () => {
   return (
     <SinglePostQuery
       query={SINGLE_POST_QUERY}
