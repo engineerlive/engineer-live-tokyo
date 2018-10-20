@@ -6,7 +6,7 @@ interface PropType {
   title: string
   date: string
   authorName: string
-  issueNumber: number
+  issueNumber?: number
 }
 
 const PostHeader: React.SFC<PropType> = ({

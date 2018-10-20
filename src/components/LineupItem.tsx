@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 interface PropType {
   title: string
-  issueNumber: number
+  issueNumber?: number
   bodyHTML: string
   thumbnail: boolean
 }
@@ -18,10 +18,12 @@ export default ({ title, issueNumber, bodyHTML, thumbnail }: PropType) => (
       }}
     />
     <div>
-      <Link to={`/lineup/${issueNumber}`}>
-        {title}
-        の紹介ページ
-      </Link>
+      {issueNumber ? (
+        <Link to={`/lineup/${issueNumber}`}>
+          {title}
+          の紹介ページ
+        </Link>
+      ) : null}
     </div>
   </LineupItemWrapper>
 )
@@ -44,7 +46,7 @@ const LineupItemWrapper = styled.div`
 `
 
 const LineupTitle = styled.h2`
-  font-size: 1.6rem;
-  line-height: 3rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
   text-align: center;
 `

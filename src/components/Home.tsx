@@ -8,9 +8,15 @@ import TopInformation from "./TopInformation"
 const Home = () => (
   <div>
     <TopInformation />
-    <About summary={true} />
-    <LineupList />
-    <PostList numberOfPosts={10} />
+    <div id="about">
+      <About summary={true} />
+    </div>
+    <div id="lineup">
+      <LineupList />
+    </div>
+    <div id="news">
+      <PostList numberOfPosts={10} />
+    </div>
   </div>
 )
 

@@ -3,6 +3,8 @@ import Media from "react-media"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 
+import nabvarLogo from "./navbar-logo.png"
+
 interface StateType {
   isNavbarMenuOpen: boolean
 }
@@ -29,7 +31,7 @@ class Header extends React.Component<{}, StateType> {
           <Navbar>
             <NavbarItem style={{ marginRight: "auto" }}>
               <Link to="/">
-                <NavbarLogo>Engineer Live</NavbarLogo>
+                <NavbarLogoImage src={nabvarLogo} />
               </Link>
             </NavbarItem>
             <Media query="(max-width: 768px)">
@@ -45,7 +47,13 @@ class Header extends React.Component<{}, StateType> {
                 ) : (
                   <React.Fragment>
                     <NavbarItem>
-                      <Link to="/posts">NEWS</Link>
+                      <a href="#about">ABOUT</a>
+                    </NavbarItem>
+                    <NavbarItem>
+                      <a href="#lineup">LINEUP</a>
+                    </NavbarItem>
+                    <NavbarItem>
+                      <a href="#news">NEWS</a>
                     </NavbarItem>
                   </React.Fragment>
                 )
@@ -60,9 +68,19 @@ class Header extends React.Component<{}, StateType> {
                 {this.state.isNavbarMenuOpen ? (
                   <BurgerMenu>
                     <BurgerMenuLinkWrapper>
-                      <Link to="/posts" onClick={this.closeBurgerMenu}>
+                      <a href="#about" onClick={this.closeBurgerMenu}>
+                        ABOUT
+                      </a>
+                    </BurgerMenuLinkWrapper>
+                    <BurgerMenuLinkWrapper>
+                      <a href="#lineup" onClick={this.closeBurgerMenu}>
+                        LINEUP
+                      </a>
+                    </BurgerMenuLinkWrapper>
+                    <BurgerMenuLinkWrapper>
+                      <a href="#news" onClick={this.closeBurgerMenu}>
                         NEWS
-                      </Link>
+                      </a>
                     </BurgerMenuLinkWrapper>
                   </BurgerMenu>
                 ) : null}
@@ -88,8 +106,9 @@ const NavbarItem = styled.div`
   padding: 0.5rem 1rem;
 `
 
-const NavbarLogo = styled.div`
+const NavbarLogoImage = styled.img`
   height: 28px;
+  width: 112px;
 `
 
 const Burger = styled.a`

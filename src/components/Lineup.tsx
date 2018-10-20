@@ -1,11 +1,11 @@
 import gql from "graphql-tag"
 import * as React from "react"
 import { Query } from "react-apollo"
-import { repositorySettings, siteSettings } from "../config"
 
+import { repositorySettings, siteSettings } from "../config"
 import youtubify from "../utils/youtubify"
+import LineupItem from "./LineupItem"
 import Metas from "./Metas"
-import PostHeader from "./PostHeader"
 import Spinner from "./Spinner"
 
 interface Data {
@@ -15,10 +15,6 @@ interface Data {
       title: string
       bodyHTML: string
       bodyText: string
-      createdAt: string
-      author: {
-        login: string
-      }
     }
   }
 }
@@ -37,10 +33,10 @@ declare var window: {
   prerenderReady: boolean
 }
 
-class SinglePostQuery extends Query<Data, Variables> {}
+class SingleLineupQuery extends Query<Data, Variables> {}
 
-const SINGLE_POST_QUERY = gql`
-  query singlePostQuery(
+const SINGLE_LINEUP_QUERY = gql`
+  query singleLineupQuery(
     $repositoryOwner: String!
     $repositoryName: String!
     $issueNumber: Int!
@@ -51,22 +47,18 @@ const SINGLE_POST_QUERY = gql`
         title
         bodyHTML
         bodyText
-        createdAt
-        author {
-          login
-        }
       }
     }
   }
 `
 
-const Post: React.SFC<PropType> = (props: PropType) => {
+const Lineup: React.SFC<PropType> = props => {
   // Prerendering support
   window.prerenderReady = false
 
   return (
-    <SinglePostQuery
-      query={SINGLE_POST_QUERY}
+    <SingleLineupQuery
+      query={SINGLE_LINEUP_QUERY}
       variables={{
         repositoryOwner: repositorySettings.owner,
         repositoryName: repositorySettings.name,
@@ -77,7 +69,6 @@ const Post: React.SFC<PropType> = (props: PropType) => {
         if (loading) {
           return <Spinner />
         }
-
         if (error) {
           return `Error! ${error.message}`
         }
@@ -87,6 +78,12 @@ const Post: React.SFC<PropType> = (props: PropType) => {
 
           // Prerendering support
           window.prerenderReady = true
+
+          const imgTagPattern = /<img.*?src="(.*?)"/
+          const matches = imgTagPattern.exec(issue.bodyHTML)
+          const imgSrc = matches
+            ? matches[1]
+            : `${siteSettings.url}/ogp-image.png`
           const bodyHTML = youtubify(issue.bodyHTML)
 
           return (
@@ -96,24 +93,22 @@ const Post: React.SFC<PropType> = (props: PropType) => {
                 description={issue.bodyText
                   .replace(/\r?\n/g, " ")
                   .substr(0, 100)}
-                url={`${siteSettings.url}/posts/${issue.number}`}
-                imageUrl={`${siteSettings.url}/ogp-image.png`}
+                url={`${siteSettings.url}/lineup/${issue.number}`}
+                imageUrl={imgSrc}
               />
-              <PostHeader
+              <LineupItem
                 title={issue.title}
-                date={issue.createdAt}
-                authorName={issue.author.login}
+                bodyHTML={bodyHTML}
+                thumbnail={false}
               />
-
-              <div dangerouslySetInnerHTML={{ __html: bodyHTML }} />
             </div>
           )
         } else {
           return null
         }
       }}
-    </SinglePostQuery>
+    </SingleLineupQuery>
   )
 }
 
-export default Post
+export default Lineup
