@@ -3,13 +3,9 @@ import * as React from "react"
 import { Query } from "react-apollo"
 import styled from "styled-components"
 
-// import { repositorySettings, siteSettings } from "../config"
 import { repositorySettings } from "../config"
 import LineupItem from "./LineupItem"
 import SectionTitle from "./SectionTitle"
-
-// import LineupItem from "./LineupItem"
-// import Metas from "./Metas"
 import Spinner from "./Spinner"
 
 interface Data {
@@ -86,12 +82,6 @@ const LineupList: React.SFC<{}> = () => {
 
           return (
             <div>
-              {/* <Metas
-              title="LINEUP"
-              description="エンジニアライブ東京の出演者ページ"
-              url={`${siteSettings.url}/lineup`}
-              imageUrl={`${siteSettings.url}/ogp-image.png`}
-            /> */}
               <SectionTitle>LINEUP</SectionTitle>
               <LineupContainer>
                 {lineups.map(({ node }) => {

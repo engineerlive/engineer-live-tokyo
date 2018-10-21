@@ -1,8 +1,8 @@
 import gql from "graphql-tag"
 import * as React from "react"
 import { Query } from "react-apollo"
-import { repositorySettings, siteSettings } from "../config"
 
+import { repositorySettings, siteSettings } from "../config"
 import youtubify from "../utils/youtubify"
 import Metas from "./Metas"
 import PostHeader from "./PostHeader"

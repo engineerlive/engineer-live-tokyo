@@ -2,6 +2,7 @@ import gql from "graphql-tag"
 import * as React from "react"
 import { Query } from "react-apollo"
 import { Link } from "react-router-dom"
+
 import PostExcerpt from "./PostExcerpt"
 import PostHeader from "./PostHeader"
 import SectionTitle from "./SectionTitle"
