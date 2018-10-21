@@ -16,7 +16,7 @@ interface Data {
           id: number
           number: number
           title: string
-          bodyHTML: string
+          bodyText: string
           createdAt: string
           author: {
             login: string
@@ -64,7 +64,7 @@ const POST_LIST_QUERY = gql`
             id
             number
             title
-            bodyHTML
+            bodyText
             createdAt
             author {
               login
@@ -122,7 +122,7 @@ const PostList: React.SFC<PropType> = ({ numberOfPosts }: PropType) => {
                       authorName={node.author.login}
                       issueNumber={node.number}
                     />
-                    <PostExcerpt html={node.bodyHTML} />
+                    <PostExcerpt text={node.bodyText} />
                     <div style={{ textAlign: "right" }}>
                       <Link to={`/posts/${node.number}`}>
                         &gt;&gt; READ MORE

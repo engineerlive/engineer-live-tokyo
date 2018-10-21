@@ -1,12 +1,12 @@
 import * as React from "react"
 
 interface PropType {
-  html: string
+  text: string
 }
 
-const PostExcerpt: React.SFC<PropType> = ({ html }: PropType) => {
-  const text = html.replace(/<(?:.|\n)*?>/gm, "").substr(0, 200)
-  return <div>{text} ...</div>
+const PostExcerpt: React.SFC<PropType> = ({ text }: PropType) => {
+  const excerpt = text.substr(0, 200)
+  return <div>{excerpt} ...</div>
 }
 
 export default PostExcerpt
