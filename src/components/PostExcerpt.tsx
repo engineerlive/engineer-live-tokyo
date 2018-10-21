@@ -5,7 +5,7 @@ interface PropType {
 }
 
 const PostExcerpt: React.SFC<PropType> = ({ html }: PropType) => {
-  const text = html.replace(/<(?:.|\n)*?>/gm, "").substr(1, 200)
+  const text = html.replace(/<(?:.|\n)*?>/gm, "").substr(0, 200)
   return <div>{text} ...</div>
 }
 
