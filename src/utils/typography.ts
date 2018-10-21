@@ -8,6 +8,10 @@ const typography = new Typography({
     {
       name: "Lato",
       styles: ["400", "700"]
+    },
+    {
+      name: "Press Start 2P",
+      styles: ["400"]
     }
   ],
   headerFontFamily: ["Lato", "sans-serif"],

@@ -2,7 +2,6 @@ import * as React from "react"
 import styled from "styled-components"
 
 import homeImage from "./home-image.png"
-import homeLogo from "./home-logo.png"
 
 const Home = () => {
   return (
@@ -10,9 +9,7 @@ const Home = () => {
       <div>
         <HomeImage src={homeImage} />
       </div>
-      <div>
-        <LogoImage src={homeLogo} />
-      </div>
+      <SiteTitle>EngineerLiveTokyo#1</SiteTitle>
       <Information>
         <div>2018.11.25 (日)</div>
         <div>@ 真昼の月・夜の太陽</div>
@@ -34,8 +31,9 @@ const HomeImage = styled.img`
   max-height: 500px;
 `
 
-const LogoImage = styled.img`
-  max-height: 50px;
+const SiteTitle = styled.h1`
+  font-family: "Press Start 2P";
+  text-align: center;
 `
 
 const Information = styled.div`

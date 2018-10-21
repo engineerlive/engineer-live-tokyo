@@ -22,8 +22,10 @@ class App extends React.Component {
       <div>
         <Helmet>
           <TypographyStyle typography={typography} />
-          <GoogleFont typography={typography} />
         </Helmet>
+        {/* // Workaround: See
+        https://github.com/KyleAMathews/typography.js/issues/177 */}
+        <GoogleFont typography={typography} />
         <Metas
           title="EngineerLiveTokyo"
           description="エンジニアライブ東京は、各所のエンジニアが一夜限定で音楽の腕をふるう対バンイベントです"

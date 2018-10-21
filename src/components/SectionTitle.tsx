@@ -10,7 +10,8 @@ export default (props: PropType) => (
 )
 
 const SectionTitle = styled.h1`
-  margin-top: 3em;
+  font-family: "Press Start 2P";
+  margin-top: 4em;
   text-align: center;
   border-bottom: solid 1px #565656;
   padding: 0.5em;
