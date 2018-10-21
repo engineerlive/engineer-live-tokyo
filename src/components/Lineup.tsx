@@ -1,6 +1,7 @@
 import gql from "graphql-tag"
 import * as React from "react"
 import { Query } from "react-apollo"
+import { Link } from "react-router-dom"
 
 import { repositorySettings, siteSettings } from "../config"
 import youtubify from "../utils/youtubify"
@@ -101,6 +102,9 @@ const Lineup: React.SFC<PropType> = props => {
                 bodyHTML={bodyHTML}
                 thumbnail={false}
               />
+              <div style={{ fontSize: "0.9em", textAlign: "center" }}>
+                <Link to="/">EngineerLiveTokyo#1 トップページ</Link>
+              </div>
             </div>
           )
         } else {

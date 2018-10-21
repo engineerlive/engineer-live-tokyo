@@ -1,9 +1,7 @@
 import * as React from "react"
 import Media from "react-media"
-import { Link } from "react-router-dom"
+import { HashLink as Link } from "react-router-hash-link"
 import styled from "styled-components"
-
-import nabvarLogo from "./navbar-logo.png"
 
 interface StateType {
   isNavbarMenuOpen: boolean
@@ -26,12 +24,12 @@ class Header extends React.Component<{}, StateType> {
 
   public render() {
     return (
-      <React.Fragment>
+      <header>
         <HeaderWrapper>
           <Navbar>
             <NavbarItem style={{ marginRight: "auto" }}>
               <Link to="/">
-                <NavbarLogoImage src={nabvarLogo} />
+                <NavbarLogo>EngineerLive</NavbarLogo>
               </Link>
             </NavbarItem>
             <Media query="(max-width: 768px)">
@@ -47,13 +45,13 @@ class Header extends React.Component<{}, StateType> {
                 ) : (
                   <React.Fragment>
                     <NavbarItem>
-                      <a href="#about">ABOUT</a>
+                      <Link to="/#about">ABOUT</Link>
                     </NavbarItem>
                     <NavbarItem>
-                      <a href="#lineup">LINEUP</a>
+                      <Link to="/#lineup">LINEUP</Link>
                     </NavbarItem>
                     <NavbarItem>
-                      <a href="#news">NEWS</a>
+                      <Link to="/#news">NEWS</Link>
                     </NavbarItem>
                   </React.Fragment>
                 )
@@ -68,19 +66,19 @@ class Header extends React.Component<{}, StateType> {
                 {this.state.isNavbarMenuOpen ? (
                   <BurgerMenu>
                     <BurgerMenuLinkWrapper>
-                      <a href="#about" onClick={this.closeBurgerMenu}>
+                      <Link to="/#about" onClick={this.closeBurgerMenu}>
                         ABOUT
-                      </a>
+                      </Link>
                     </BurgerMenuLinkWrapper>
                     <BurgerMenuLinkWrapper>
-                      <a href="#lineup" onClick={this.closeBurgerMenu}>
+                      <Link to="/#lineup" onClick={this.closeBurgerMenu}>
                         LINEUP
-                      </a>
+                      </Link>
                     </BurgerMenuLinkWrapper>
                     <BurgerMenuLinkWrapper>
-                      <a href="#news" onClick={this.closeBurgerMenu}>
+                      <Link to="/#news" onClick={this.closeBurgerMenu}>
                         NEWS
-                      </a>
+                      </Link>
                     </BurgerMenuLinkWrapper>
                   </BurgerMenu>
                 ) : null}
@@ -88,7 +86,7 @@ class Header extends React.Component<{}, StateType> {
             ) : null
           }
         </Media>
-      </React.Fragment>
+      </header>
     )
   }
 }
@@ -106,9 +104,9 @@ const NavbarItem = styled.div`
   padding: 0.5rem 1rem;
 `
 
-const NavbarLogoImage = styled.img`
+const NavbarLogo = styled.div`
+  font-family: "Press Start 2P";
   height: 28px;
-  width: 112px;
 `
 
 const Burger = styled.a`
@@ -133,6 +131,8 @@ const BurgerMenu = styled.div`
   color: #0a0a0a;
   line-height: 3em;
   text-align: center;
+  position: fixed;
+  width: 100%;
 `
 
 const BurgerMenuLinkWrapper = styled.div`

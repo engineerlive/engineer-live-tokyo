@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
-// import { Link, Route, Switch } from "react-router-dom"
 import { Route, Switch } from "react-router-dom"
 import { GoogleFont, TypographyStyle } from "react-typography"
 
@@ -36,7 +35,7 @@ class App extends React.Component {
         <div
           className="main"
           style={{
-            margin: "0 auto",
+            margin: "60px auto",
             maxWidth: "960px",
             paddingRight: "1rem",
             paddingLeft: "1rem"
