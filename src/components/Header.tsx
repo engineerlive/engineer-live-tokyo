@@ -21,7 +21,6 @@ class Header extends React.Component<{}, StateType> {
         return
       }
       window.requestAnimationFrame(() => {
-        console.log(window.pageYOffset)
         if (window.pageYOffset < 160) {
           header.classList.add("show")
         } else if (prevOffset < window.pageYOffset) {
