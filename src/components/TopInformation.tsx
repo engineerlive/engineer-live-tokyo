@@ -24,6 +24,7 @@ const Home: React.SFC<{}> = () => {
 }
 
 const Container = styled.div`
+  margin-top: 80px;
   text-align: center;
 `
 

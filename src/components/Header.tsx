@@ -10,12 +10,35 @@ interface StateType {
 class Header extends React.Component<{}, StateType> {
   public state = { isNavbarMenuOpen: false }
 
+  public componentDidMount() {
+    let prevOffset = 0
+    let ticking = false
+    const header = document.getElementsByClassName("header")![0]
+    header.classList.add("show")
+
+    document.addEventListener("scroll", () => {
+      if (ticking) {
+        return
+      }
+      window.requestAnimationFrame(() => {
+        if (prevOffset < window.pageYOffset) {
+          header.classList.remove("show")
+          prevOffset = window.pageYOffset
+        } else if (prevOffset > window.pageYOffset) {
+          header.classList.add("show")
+          prevOffset = window.pageYOffset
+        }
+        ticking = false
+      })
+      ticking = true
+    })
+  }
+
   public handleBurgerClick = (event: any) => {
     event.preventDefault()
     this.setState(prevState => ({
       isNavbarMenuOpen: !prevState.isNavbarMenuOpen
     }))
-    console.log(this.state.isNavbarMenuOpen)
   }
 
   public closeBurgerMenu = (event: any) => {
@@ -24,7 +47,7 @@ class Header extends React.Component<{}, StateType> {
 
   public render() {
     return (
-      <header>
+      <header className="header">
         <HeaderWrapper>
           <Navbar>
             <NavbarItem style={{ marginRight: "auto" }}>

@@ -2,6 +2,18 @@ body {
   background-color: #000;
 }
 
+header {
+  position: fixed;
+  top: -60px;
+  transition: all 0.4s ease-in-out;
+  width: 100vw;
+  z-index: 10000;
+}
+
 header a {
   font-family: "Press Start 2P";
+}
+
+header.show {
+  top: 0;
 }
