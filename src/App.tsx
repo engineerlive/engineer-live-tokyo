@@ -35,7 +35,7 @@ class App extends React.Component {
         <div
           className="main"
           style={{
-            margin: "60px auto",
+            margin: "100px auto",
             maxWidth: "960px",
             paddingRight: "1rem",
             paddingLeft: "1rem"
