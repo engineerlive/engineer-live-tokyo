@@ -14,7 +14,7 @@ const Home = () => {
         <div>2018.11.25 (日)</div>
         <div>@ 真昼の月・夜の太陽</div>
         <div>
-          <a href="http://mahiru-yoru.com/index.html">
+          <a href="http://mahiru-yoru.com/index.html" target="_blank">
             http://mahiru-yoru.com/index.html
           </a>
         </div>
