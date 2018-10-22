@@ -1,9 +1,9 @@
 import * as React from "react"
 import styled from "styled-components"
 
-export default () => <Spinner />
+const Spinner: React.SFC<{}> = () => <SpinnerElement />
 
-const Spinner = styled.div`
+const SpinnerElement = styled.div`
   width: 40px;
   height: 40px;
   border: 3px solid rgba(180, 180, 180, 0.3);
@@ -39,3 +39,5 @@ const Spinner = styled.div`
     }
   }
 `
+
+export default Spinner

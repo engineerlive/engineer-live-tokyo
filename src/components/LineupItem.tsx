@@ -9,7 +9,12 @@ interface PropType {
   thumbnail: boolean
 }
 
-export default ({ title, issueNumber, bodyHTML, thumbnail }: PropType) => (
+const LineupItem: React.SFC<PropType> = ({
+  title,
+  issueNumber,
+  bodyHTML,
+  thumbnail
+}) => (
   <LineupItemWrapper>
     <LineupTitle>{title}</LineupTitle>
     <div
@@ -50,3 +55,5 @@ const LineupTitle = styled.h2`
   line-height: 2rem;
   text-align: center;
 `
+
+export default LineupItem

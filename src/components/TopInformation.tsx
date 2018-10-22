@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 import homeImage from "./home-image.png"
 
-const Home = () => {
+const Home: React.SFC<{}> = () => {
   return (
     <Container>
       <div>

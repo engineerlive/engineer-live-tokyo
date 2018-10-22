@@ -4,7 +4,7 @@ interface PropType {
   text: string
 }
 
-const PostExcerpt: React.SFC<PropType> = ({ text }: PropType) => {
+const PostExcerpt: React.SFC<PropType> = ({ text }) => {
   const excerpt = text.substr(0, 200)
   return <div>{excerpt} ...</div>
 }

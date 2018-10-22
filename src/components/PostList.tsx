@@ -83,7 +83,7 @@ const POST_LIST_QUERY = gql`
   }
 `
 
-const PostList: React.SFC<PropType> = ({ numberOfPosts }: PropType) => {
+const PostList: React.SFC<PropType> = ({ numberOfPosts }) => {
   return (
     <PostListQuery
       query={POST_LIST_QUERY}

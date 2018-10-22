@@ -5,4 +5,8 @@ const NotFoundElement = styled.div`
   text-align: center;
 `
 
-export default () => <NotFoundElement>Page Not Found</NotFoundElement>
+const NotFound: React.SFC<{}> = () => (
+  <NotFoundElement>Page Not Found</NotFoundElement>
+)
+
+export default NotFound

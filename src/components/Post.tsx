@@ -61,7 +61,7 @@ const SINGLE_POST_QUERY = gql`
   }
 `
 
-const Post: React.SFC<PropType> = (props: PropType) => {
+const Post: React.SFC<PropType> = props => {
   // Prerendering support
   window.prerenderReady = false
 
