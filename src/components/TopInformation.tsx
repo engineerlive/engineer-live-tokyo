@@ -9,7 +9,7 @@ const Home = () => {
       <div>
         <HomeImage src={homeImage} />
       </div>
-      <SiteTitle>EngineerLiveTokyo#1</SiteTitle>
+      <SiteTitle>EngineerLiveTokyo</SiteTitle>
       <Information>
         <div>2018.11.25 (日)</div>
         <div>@ 真昼の月・夜の太陽</div>

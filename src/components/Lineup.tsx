@@ -103,7 +103,7 @@ const Lineup: React.SFC<PropType> = props => {
                 thumbnail={false}
               />
               <div style={{ fontSize: "0.9em", textAlign: "center" }}>
-                <Link to="/">EngineerLiveTokyo#1 トップページ</Link>
+                <Link to="/">EngineerLiveTokyo トップページ</Link>
               </div>
             </div>
           )
