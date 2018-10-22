@@ -5,6 +5,7 @@ import * as ReactDOM from "react-dom"
 import { BrowserRouter } from "react-router-dom"
 
 import App from "./App"
+import ScrollToTop from "./components/ScrollToTop"
 import "./index.css"
 import registerServiceWorker from "./registerServiceWorker"
 
@@ -26,7 +27,9 @@ export const client = new ApolloClient({
 ReactDOM.render(
   <ApolloProvider client={client}>
     <BrowserRouter>
-      <App />
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>
     </BrowserRouter>
   </ApolloProvider>,
   document.getElementById("root") as HTMLElement
