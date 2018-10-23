@@ -19,7 +19,7 @@ const LineupItem: React.SFC<PropType> = ({
     <LineupTitle>{title}</LineupTitle>
     <div
       dangerouslySetInnerHTML={{
-        __html: thumbnail ? createThumbnail(bodyHTML) : bodyHTML
+        __html: thumbnail ? createThumbnail(bodyHTML) : removeImgLink(bodyHTML)
       }}
     />
     <div style={{ textAlign: "center" }}>
@@ -43,6 +43,11 @@ const createThumbnail = (html: string): string => {
   } else {
     return ""
   }
+}
+
+const removeImgLink = (html: string): string => {
+  const re = /<a target="_blank" rel="noopener noreferrer" href="(https?:\/\/.+?)"><img src="(https?:\/\/.+?)".+alt="(.+?)".+?>/
+  return html.replace(re, `<img src="$2" alt="$3">`)
 }
 
 const LineupItemWrapper = styled.div`
