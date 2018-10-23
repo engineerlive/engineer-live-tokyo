@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
+import LazyLoad from "vanilla-lazyload"
 
 interface PropType {
   title: string
@@ -9,45 +10,54 @@ interface PropType {
   thumbnail: boolean
 }
 
-const LineupItem: React.SFC<PropType> = ({
-  title,
-  issueNumber,
-  bodyHTML,
-  thumbnail
-}) => (
-  <LineupItemWrapper>
-    <LineupTitle>{title}</LineupTitle>
-    <div
-      dangerouslySetInnerHTML={{
-        __html: thumbnail ? createThumbnail(bodyHTML) : removeImgLink(bodyHTML)
-      }}
-    />
-    <div style={{ textAlign: "center" }}>
-      {issueNumber ? (
-        <Link to={`/lineup/${issueNumber}`}>
-          {title}
-          の紹介ページ
-        </Link>
-      ) : null}
-    </div>
-  </LineupItemWrapper>
-)
-
-const createThumbnail = (html: string): string => {
-  const re = /<img src="(https?:\/\/.+?)".+alt="(.+?)".+?>/
-  const matches = html.match(re)
-  if (matches) {
-    return `<img src="${matches[1]}" alt="${
-      matches[2]
-    }" style="margin-bottom: 10px;">`
-  } else {
-    return ""
+class LineupItem extends React.Component<PropType, {}> {
+  public componentDidMount() {
+    // tslint:disable-next-line no-unused-expression
+    new LazyLoad({
+      elements_selector: ".lazy"
+    })
   }
-}
 
-const removeImgLink = (html: string): string => {
-  const re = /<a target="_blank" rel="noopener noreferrer" href="(https?:\/\/.+?)"><img src="(https?:\/\/.+?)".+alt="(.+?)".+?>/
-  return html.replace(re, `<img src="$2" alt="$3">`)
+  public render() {
+    const { title, issueNumber, bodyHTML, thumbnail } = this.props
+    return (
+      <LineupItemWrapper>
+        <LineupTitle>{title}</LineupTitle>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: thumbnail
+              ? this.createThumbnail(bodyHTML)
+              : this.removeImgLink(bodyHTML)
+          }}
+        />
+        <div style={{ textAlign: "center" }}>
+          {issueNumber ? (
+            <Link to={`/lineup/${issueNumber}`}>
+              {title}
+              の紹介ページ
+            </Link>
+          ) : null}
+        </div>
+      </LineupItemWrapper>
+    )
+  }
+
+  private removeImgLink(html: string): string {
+    const re = /<a target="_blank" rel="noopener noreferrer" href="(https?:\/\/.+?)"><img src="(https?:\/\/.+?)".+alt="(.+?)".+?>/
+    return html.replace(re, `<img src="$2" alt="$3">`)
+  }
+
+  private createThumbnail(html: string): string {
+    const re = /<img src="(https?:\/\/.+?)".+alt="(.+?)".+?>/
+    const matches = html.match(re)
+    if (matches) {
+      return `<img class="lazy" data-src="${matches[1]}" alt="${
+        matches[2]
+      }" style="margin-bottom: 10px;">`
+    } else {
+      return ""
+    }
+  }
 }
 
 const LineupItemWrapper = styled.div`
