@@ -34,10 +34,10 @@ const LineupItem: React.SFC<PropType> = ({
 )
 
 const createThumbnail = (html: string): string => {
-  const re = /<img src="(https?:\/\/.+?)".+?>/
+  const re = /<img src="(https?:\/\/.+?)".+alt="(.+?)".+?>/
   const matches = html.match(re)
   if (matches) {
-    return `<img src="${matches[1]}">`
+    return `<img src="${matches[1]}" alt="${matches[2]}">`
   } else {
     return ""
   }
