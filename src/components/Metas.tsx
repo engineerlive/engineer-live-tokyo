@@ -15,8 +15,9 @@ const Metas: React.SFC<PropType> = ({
   imageUrl
 }: PropType) => (
   <Helmet>
+    <title>{title}</title>
     <meta name="description" content={description} />
-    <meta property="og:title" content={`${title} | EngineerLiveTokyo`} />
+    <meta property="og:title" content={`${title}`} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url} />
     <meta name="twitter:card" content="summary_large_image" />

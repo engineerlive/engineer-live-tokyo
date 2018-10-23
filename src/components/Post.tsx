@@ -93,7 +93,7 @@ const Post: React.SFC<PropType> = props => {
           return (
             <div>
               <Metas
-                title={issue.title}
+                title={`${issue.title} | EngineerLiveTokyo`}
                 description={issue.bodyText
                   .replace(/\r?\n/g, " ")
                   .substr(0, 100)}
