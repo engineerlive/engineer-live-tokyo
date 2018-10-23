@@ -6,16 +6,12 @@ const typography = new Typography({
   scaleRatio: 1.8,
   googleFonts: [
     {
-      name: "Lato",
-      styles: ["400", "700"]
-    },
-    {
       name: "Press Start 2P",
       styles: ["400"]
     }
   ],
-  headerFontFamily: ["Lato", "sans-serif"],
-  bodyFontFamily: ["Lato", "sans-serif"],
+  headerFontFamily: ["sans-serif"],
+  bodyFontFamily: ["sans-serif"],
   headerColor: "#fff",
   bodyColor: "#fff",
   headerWeight: 400,
