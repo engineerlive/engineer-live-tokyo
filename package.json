@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build && cp _redirects build/",
+    "build": "react-scripts-ts build && cp _redirects build/ && cp robots.txt build/",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
   },
