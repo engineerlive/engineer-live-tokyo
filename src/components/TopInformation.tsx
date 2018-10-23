@@ -7,7 +7,7 @@ const Home: React.SFC<{}> = () => {
   return (
     <Container>
       <div>
-        <HomeImage src={homeImage} />
+        <HomeImage src={homeImage} alt="eng-live-image" />
       </div>
       <SiteTitle>EngineerLiveTokyo</SiteTitle>
       <Information>
