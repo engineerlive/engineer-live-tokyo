@@ -37,7 +37,7 @@ const typography = new Typography({
       textDecoration: "none"
     },
     "a:hover": {
-      opacity: 0.7
+      opacity: 0.8
     },
     blockquote: {
       borderLeft: "solid 10px #ddd",

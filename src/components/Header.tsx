@@ -130,6 +130,7 @@ const NavbarItem = styled.div`
 `
 
 const NavbarLogo = styled.div`
+  color: #fff;
   font-family: "Press Start 2P";
   height: 28px;
 `
@@ -147,7 +148,7 @@ const BurgerLine = styled.span`
   height: 2px;
   margin-bottom: 4px;
   position: relative;
-  background: #cdcdcd;
+  background: #dad74c;
   border-radius: 2px;
 `
 
