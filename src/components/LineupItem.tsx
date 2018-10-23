@@ -22,7 +22,7 @@ const LineupItem: React.SFC<PropType> = ({
         __html: thumbnail ? createThumbnail(bodyHTML) : bodyHTML
       }}
     />
-    <div>
+    <div style={{ textAlign: "center" }}>
       {issueNumber ? (
         <Link to={`/lineup/${issueNumber}`}>
           {title}
@@ -37,7 +37,9 @@ const createThumbnail = (html: string): string => {
   const re = /<img src="(https?:\/\/.+?)".+alt="(.+?)".+?>/
   const matches = html.match(re)
   if (matches) {
-    return `<img src="${matches[1]}" alt="${matches[2]}">`
+    return `<img src="${matches[1]}" alt="${
+      matches[2]
+    }" style="margin-bottom: 10px;">`
   } else {
     return ""
   }
