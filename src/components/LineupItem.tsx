@@ -44,7 +44,14 @@ class LineupItem extends React.Component<PropType, {}> {
 
   private removeImgLink(html: string): string {
     const re = /<a target="_blank" rel="noopener noreferrer" href="(https?:\/\/.+?)"><img src="(https?:\/\/.+?)".+alt="(.+?)".+?>/
-    return html.replace(re, `<img src="$2" alt="$3">`)
+    return html.replace(
+      re,
+      `
+    <div style="text-align: center;">
+      <img src="$2" alt="$3" style="max-width: 600px; width: 100%">
+    </div>
+    `
+    )
   }
 
   private createThumbnail(html: string): string {
