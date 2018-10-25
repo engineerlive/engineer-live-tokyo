@@ -1,6 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
 
+import ConnpassLink from "./ConnpassLink"
 import homeImage from "./home-image.png"
 
 const Home: React.SFC<{}> = () => {
@@ -23,6 +24,7 @@ const Home: React.SFC<{}> = () => {
           </a>
         </div>
       </Information>
+      <ConnpassLink />
     </Container>
   )
 }
